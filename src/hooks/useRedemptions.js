@@ -24,9 +24,6 @@ export const useRedeemMutation = () => {
   return useMutation({
     mutationFn: redeemCoupon,
     onSuccess: () => {
-      // A successful redemption changes the customer's own history AND
-      // (indirectly, via usedCount) every coupon list an admin might be
-      // looking at, so both caches are invalidated.
       queryClient.invalidateQueries({ queryKey: ['myRedemptions'] });
       queryClient.invalidateQueries({ queryKey: ['coupons'] });
     },

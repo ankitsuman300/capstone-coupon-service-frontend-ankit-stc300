@@ -1,6 +1,3 @@
-// Pure presentational component: takes plain props, renders, owns no
-// state or fetching of its own (Component Conventions: "container owns
-// data fetching, presentational hands plain props").
 export const Pagination = ({ page, limit, totalCount, onPageChange }) => {
   const totalPages = Math.max(1, Math.ceil(totalCount / limit));
   if (totalPages <= 1) return null;

@@ -1,7 +1,3 @@
-// Route paths as a single source of truth (Component Conventions doc:
-// "anything a string literal appears more than once, extract it"). A typo
-// in `SitemapRoute.COUPONS` is a compile-time/import error; a typo in a
-// hand-typed '/admin/coupns' string is a silent 404 at runtime.
 export const SitemapRoute = {
   LOGIN: '/login',
   REDEEM: '/redeem',

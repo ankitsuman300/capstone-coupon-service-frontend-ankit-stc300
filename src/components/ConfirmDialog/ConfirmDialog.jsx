@@ -1,7 +1,3 @@
-// Used for the revert action ("admin reverts a redemption") and the pause
-// action — anything destructive/state-changing enough to deserve a
-// confirm step, without pulling in a full modal library.
-
 import { useEffect, useRef } from "react";
 
 export const ConfirmDialog = ({

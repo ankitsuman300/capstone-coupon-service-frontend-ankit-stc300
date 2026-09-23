@@ -2,8 +2,6 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { useCouponAnalyticsQuery } from '@/hooks/useAnalytics';
 import { LoadingState, ErrorState, EmptyState } from '@/components';
 
-// Matches the backend's getCouponAnalyticsService response shape:
-// { topCoupons: [{ code, redemptionCount, totalDiscountValue }], summary: {...} }
 export const AnalyticsPage = () => {
   const { data, isLoading, isError, error, refetch } = useCouponAnalyticsQuery({ limit: 10 });
 

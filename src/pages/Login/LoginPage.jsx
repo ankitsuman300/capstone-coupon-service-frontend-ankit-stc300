@@ -7,9 +7,7 @@ import { extractApiErrors, extractApiErrorMessage } from '@/utils/apiError';
 import { SitemapRoute } from '@/utils/routes';
 import { UserRole } from '@/utils/roles';
 
-// 1. Yup schema — mirrors the backend's login validation (identifier is
-// either an email or a 10-digit phone, checked server-side in
-// authUserService.js; Yup just needs "required" here for fast UX feedback).
+
 const loginSchema = Yup.object({
   identifier: Yup.string().required('Email or phone is required'),
   password: Yup.string().min(6, 'Minimum 6 characters').required('Password is required'),
@@ -32,8 +30,7 @@ export const LoginPage = () => {
         (loggedInUser?.role === UserRole.ADMIN ? SitemapRoute.ADMIN_COUPONS : SitemapRoute.REDEEM);
       navigate(redirectTo, { replace: true });
     } catch (error) {
-      // 3. Map backend field errors onto Formik; fall back to a toast for
-      // anything that isn't field-specific (e.g. "no user found").
+     
       const fieldErrors = extractApiErrors(error);
       if (Object.keys(fieldErrors).length > 0) {
         setErrors(fieldErrors);
@@ -52,7 +49,7 @@ export const LoginPage = () => {
           Coupon Redemption Service
         </p>
 
-        {/* 4. Controlled form, inline errors, submit disabled until valid+dirty */}
+        {/* Controlled form, inline errors, submit disabled until valid+dirty */}
         <Formik initialValues={initialValues} validationSchema={loginSchema} onSubmit={handleSubmit}>
           {({ isSubmitting, isValid, dirty }) => (
             <Form className="flex flex-col gap-4">
@@ -73,6 +70,7 @@ export const LoginPage = () => {
                 <label htmlFor="password" className="mb-1 block text-sm font-medium">
                   Password
                 </label>
+
                 <Field
                   id="password"
                   name="password"

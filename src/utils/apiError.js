@@ -1,9 +1,7 @@
 // The backend's globalErrorHandler always shapes errors as
 // { responseCode, status, statusCode, errors: [{ field, message }] }.
-// This turns that array into a { fieldName: message } map so a form's
-// onError can feed it straight into Formik's setErrors — backend
-// validation errors then appear next to the right field automatically,
-// with no special-casing per form.
+//array into { fieldName: message } map 
+
 export const extractApiErrors = (error) => {
   const errors = error?.response?.data?.errors;
   if (!Array.isArray(errors)) return {};

@@ -1,11 +1,5 @@
 @import 'tailwindcss';
 
-/*
- * Design tokens (per the team's Styling doc): a single source of truth for
- * colors, spacing and typography, read by both Tailwind's `theme()` and
- * plain CSS via `var(--token)`. When the design changes, this is the one
- * file to touch.
- */
 :root[data-theme='light'] {
   --color-bg: #f8fafc;
   --color-surface: #ffffff;

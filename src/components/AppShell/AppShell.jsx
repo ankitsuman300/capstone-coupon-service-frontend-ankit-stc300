@@ -11,9 +11,6 @@ const navLinkClass = ({ isActive }) =>
       : 'text-[var(--color-text-muted)] hover:bg-[var(--color-border)]/50 hover:text-[var(--color-text)]'
   }`;
 
-// Same shell for both roles per the Brief ("app shell with nav, sidebar,
-// logout — same shell used by both roles, contents change by role") — the
-// sidebar links are the only thing that differ, driven by `user.role`.
 export const AppShell = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();

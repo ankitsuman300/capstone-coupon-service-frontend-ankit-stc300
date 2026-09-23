@@ -14,9 +14,8 @@ import { SitemapRoute } from '@/utils/routes';
 // Mirrors the backend's createCouponSchema/updateCouponSchema (Joi) in
 // utils/validationSchemas/couponSchema.js, including the cross-field rule
 // that a PERCENT discount can't exceed 100 (the backend's
-// `discountValueCheck` validator — duplicated here only for fast UX
-// feedback; the backend re-checks it regardless, per the Forms doc's
-// "never trust the client" rule).
+// `discountValueCheck` validator )
+
 const couponSchema = Yup.object({
   code: Yup.string().trim().uppercase().required('Coupon code is required'),
   discountType: Yup.string().oneOf(['PERCENT', 'FLAT']).required('Discount type is required'),
@@ -51,8 +50,6 @@ const emptyValues = {
 };
 
 // One page handles both "new" (no :id param) and "edit" (:id present) —
-// per Component Conventions, this beats two near-identical components that
-// would drift apart over time.
 export const CouponFormPage = () => {
   const { id } = useParams();
   const isEditMode = !!id;
