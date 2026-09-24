@@ -6,7 +6,7 @@ export const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   withCredentials: true,
 });
-refreshPromise
+
 // The backend also accepts the access token as an Authorization header
 // (middlewares/auth.js checks the header first, then falls back to the
 // cookie) 
